@@ -1,1 +1,68 @@
 .claude/settings.local.json
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*enclave*private*
+
+# OS / editor
+.DS_Store
+*.swp
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Foundry (contracts/)
+contracts/cache/
+contracts/out/
+contracts/broadcast/*/*/run-*.json
+!contracts/broadcast/*/*/run-latest.json
+contracts/lib/
+contracts/.env
+
+# Halmos (contracts/proofs/)
+**/halmos-out/
+
+# Rust (attestation/, keeper/)
+target/
+**/*.rs.bk
+Cargo.lock.bak
+
+# Python (underwriter/)
+underwriter/.venv/
+underwriter/__pycache__/
+**/__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node / Next.js (app/)
+node_modules/
+app/.next/
+app/out/
+.pnpm-store/
+*.tsbuildinfo
+
+# dbt (pipeline/)
+pipeline/target/
+pipeline/dbt_packages/
+pipeline/logs/
+
+# Data artifacts (feature layer — code and schema are versioned, generated data is not)
+*.parquet
+pipeline/**/data/
+
+# Terraform (ops/)
+ops/**/.terraform/
+ops/**/*.tfstate
+ops/**/*.tfstate.*
+ops/**/*.tfvars
+!ops/**/*.tfvars.example
+ops/**/.terraform.lock.hcl
+
+# Logs
+*.log
