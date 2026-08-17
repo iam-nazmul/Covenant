@@ -2,7 +2,7 @@
 
 **Spec version:** 0.1 (draft for review)
 **Status:** Pre-build. Scoped to Phase 1 only.
-**Owner:** TBD
+**Owner:** SOFTIFE
 **Last updated:** 2026-08-17
 
 ---
