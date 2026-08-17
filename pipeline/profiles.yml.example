@@ -1,0 +1,12 @@
+covenant_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: covenant
+      password: "{{ env_var('PIPELINE_DB_PASSWORD') }}"
+      port: 5432
+      dbname: covenant
+      schema: dbt_dev
+      threads: 4
