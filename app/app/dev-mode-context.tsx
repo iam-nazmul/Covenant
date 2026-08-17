@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, useSyncExternalStore, type ReactNode } from "react";
 
 const STORAGE_KEY = "covenant:dev-mode";
 
@@ -11,19 +11,25 @@ type DevModeContextValue = {
 
 const DevModeContext = createContext<DevModeContextValue | null>(null);
 
-export function DevModeProvider({ children }: { children: ReactNode }) {
-  const [devMode, setDevMode] = useState(false);
+function subscribe(callback: () => void) {
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+}
 
-  useEffect(() => {
-    setDevMode(window.localStorage.getItem(STORAGE_KEY) === "1");
-  }, []);
+function getSnapshot() {
+  return window.localStorage.getItem(STORAGE_KEY) === "1";
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
+export function DevModeProvider({ children }: { children: ReactNode }) {
+  const devMode = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const toggle = () => {
-    setDevMode((prev) => {
-      const next = !prev;
-      window.localStorage.setItem(STORAGE_KEY, next ? "1" : "0");
-      return next;
-    });
+    window.localStorage.setItem(STORAGE_KEY, devMode ? "0" : "1");
+    window.dispatchEvent(new StorageEvent("storage"));
   };
 
   return (

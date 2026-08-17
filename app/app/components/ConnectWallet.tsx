@@ -1,19 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 
 function truncate(address: string) {
   return `${address.slice(0, 6)}…${address.slice(-4)}`;
 }
 
+const noopSubscribe = () => () => {};
+
 export function ConnectWallet() {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  );
   const { address, isConnected } = useAccount();
   const { connect, connectors, isPending } = useConnect();
   const { disconnect } = useDisconnect();
-
-  useEffect(() => setMounted(true), []);
 
   if (!mounted) {
     return <div className="wallet-btn wallet-btn--skeleton" aria-hidden />;

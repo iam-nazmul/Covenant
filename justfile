@@ -2,6 +2,15 @@
 # Scaffold stage: most packages have nothing to build/test yet, so these
 # recipes are structurally correct but mostly no-op until code lands.
 
+# just runs each recipe line through a plain `sh`, which never sources
+# .bashrc (interactive-only) or .profile — so toolchains installed to the
+# usual per-user bin dirs (foundryup, rustup, uv tool install, nvm) can be
+# missing from PATH even though they're missing from nothing but PATH.
+# Setting PATH here makes every recipe below work regardless of what
+# shell or non-interactive context invoked `just`.
+nvm_node_bin := shell('ls -d "$HOME"/.nvm/versions/node/*/bin 2>/dev/null | sort -V | tail -1')
+export PATH := env_var('HOME') + "/.cargo/bin:" + env_var('HOME') + "/.foundry/bin:" + env_var('HOME') + "/.local/bin:" + nvm_node_bin + ":" + env_var('PATH')
+
 check:
     cd contracts && forge fmt --check
     cd attestation && cargo fmt --check && cargo clippy --all-targets -- -D warnings
