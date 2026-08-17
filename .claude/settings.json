@@ -1,0 +1,51 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash(just check)",
+      "Bash(just check *)",
+      "Bash(just test)",
+      "Bash(just test *)",
+      "Bash(just test-invariant)",
+      "Bash(just prove)",
+      "Bash(just fork-test)",
+      "Bash(just pipeline-build)",
+      "Bash(just backtest)",
+      "Bash(forge test *)",
+      "Bash(forge fmt *)",
+      "Bash(forge build *)",
+      "Bash(cargo test *)",
+      "Bash(cargo fmt *)",
+      "Bash(cargo clippy *)",
+      "Bash(npm run lint*)",
+      "Bash(npm run test*)",
+      "Bash(npm run typecheck*)",
+      "Bash(pytest *)",
+      "Bash(ruff *)",
+      "Bash(black *)",
+      "Bash(dbt test*)",
+      "Bash(dbt run*)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Edit(**/*.md)",
+      "Edit(contracts/test/**)"
+    ],
+    "ask": [
+      "Bash(npm install *)",
+      "Bash(npm add *)",
+      "Bash(pip install *)",
+      "Bash(poetry add *)",
+      "Bash(cargo add *)",
+      "Bash(forge install *)",
+      "Edit(contracts/src/vault/**)",
+      "Write(contracts/src/vault/**)",
+      "Edit(**/roles/**)",
+      "Write(**/roles/**)",
+      "Edit(indexer/schema/**)",
+      "Write(indexer/schema/**)"
+    ]
+  }
+}
