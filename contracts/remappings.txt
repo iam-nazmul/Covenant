@@ -1,7 +1,0 @@
-# Empty until contracts/lib/ is vendored (see contracts/lib/README.md).
-# Expected once populated, e.g.:
-# @safe/=lib/safe-smart-account/contracts/
-# @zodiac/=lib/zodiac/contracts/
-# solady/=lib/solady/src/
-# @openzeppelin/=lib/openzeppelin-contracts/contracts/
-# forge-std/=lib/forge-std/src/

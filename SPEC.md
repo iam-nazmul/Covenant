@@ -1,6 +1,6 @@
 # Covenant — Undercollateralized Credit for Autonomous Agents
 
-**Spec version:** 0.1 (draft for review)
+**Spec version:** 0.1 
 **Status:** Pre-build. Scoped to Phase 1 only.
 **Owner:** SOFTIFE
 **Last updated:** 2026-08-17

@@ -9,6 +9,11 @@ optimizer_runs = 200
 via_ir = false
 fs_permissions = [{ access = "read", path = "./" }]
 
+# No remappings yet — Safe, Zodiac, Solady, OZ are not vendored in this repo
+# checkout. Vendoring is a dependency addition; per CLAUDE.md, ask before
+# adding it. See contracts/lib/README.md.
+remappings = []
+
 # Foundry invariant runs get their own knobs — invariant suites are slow by
 # design (STACK ADR-3); CI gates test-invariant separately from `just test`.
 [profile.default.invariant]
@@ -23,8 +28,3 @@ fuzz = { runs = 1000 }
 line_length = 100
 tab_width = 4
 bracket_spacing = true
-
-# No remappings yet — Safe, Zodiac, Solady, OZ are not vendored in this repo
-# checkout. Vendoring is a dependency addition; per CLAUDE.md, ask before
-# adding it. See contracts/lib/README.md.
-remappings = []
