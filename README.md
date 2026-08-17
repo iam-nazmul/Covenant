@@ -30,6 +30,20 @@ app/           Next.js + viem/wagmi. Operator + lender UI.
 ops/           Terraform, Grafana dashboards, Defender config.
 ```
 
+![covenant-home](./media/covenant-home.png)
+
+![covenant-dev-mode.png](./media/covenant-dev-mode.png)
+
+![covenant-lender-flow](./media/covenant-lender-flow.png)
+
+![covenant-operator-flow](./media/covenant-operator-flow.png)
+
+![covenant-risklead-flow](./media/covenant-risklead-flow.png)
+
+
+
 Quickest path to running it: [HOW_TO_RUN.md](./HOW_TO_RUN.md), then
 `just dev` (or `make run`). See CLAUDE.md's Commands section for the
 full `just` recipe list.
+
+
